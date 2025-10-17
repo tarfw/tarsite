@@ -3,14 +3,19 @@ module.exports = {
   content: [
     './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
   ],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
-        notion: {
-          light: '#f5f5f5',
-          dark: '#37352f',
-          gray: '#e0e0e0',
-        }
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+        primary: 'hsl(var(--primary))',
+        secondary: 'hsl(var(--secondary))',
+        accent: 'hsl(var(--accent))',
+        muted: 'hsl(var(--muted))',
+        border: 'hsl(var(--border))',
+        card: 'hsl(var(--card))',
+        'card-foreground': 'hsl(var(--card-foreground))',
       }
     },
   },
