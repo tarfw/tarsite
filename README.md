@@ -45,3 +45,9 @@ This site is configured for deployment to Cloudflare Pages. You can deploy it in
 6. Click "Save and Deploy"
 
 Your site will be live at `https://<PROJECT_NAME>.<YOUR_SUBDOMAIN>.pages.dev`
+
+### CLI Deployment Command
+
+```bash
+wrangler pages deploy ./dist --project-name tarsite
+```
