@@ -1,0 +1,266 @@
+---
+---
+
+<section class="hero section-padding" data-animate>
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        The operating system <br />
+        <span class="text-accent">for the AI era</span>
+      </h1>
+      <p class="hero-subtitle">
+        Memory. Intelligence. Connectivity. <br />
+        Built for millions moving in real time.
+      </p>
+      <div class="hero-actions">
+        <a href="#" class="btn-appstore">
+          <svg viewBox="0 0 384 512" width="20"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-48.7-22.7-84.5-22.7-46.9 0-105.6 29.8-121.7 101.3-16.2 73.5 13.7 151.7 51.5 204.4 20.5 28.5 45.4 57.6 77.2 56.1 29-1.1 40-18 75.3-18 35.7 0 45.3 18 76.5 17.5 32-1.1 53-26.3 72.8-54.7 21-30.7 30.1-61.1 30.5-62.7-1.1-.4-60.6-23.4-60.8-92.5zm-44.1-177c15.6-18.9 26.1-45 23.3-71.3-22.6 1-49.2 15-65.5 34-14.8 17.2-27.8 44.5-24.3 70.3 25 1.9 50.8-14.1 66.5-33z"/></svg>
+          <span>App Store</span>
+        </a>
+        <a href="#" class="btn-playstore">
+          <svg viewBox="0 0 512 512" width="20"><path fill="currentColor" d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm425.2 225.6l-58.9-34.1-65.7 64.5 65.7 64.5 60.1-34.1c18-10.2 29.2-27.9 29.2-47.9 0-20-11.2-37.7-29.2-47.9zM73.4 499l311-178.6-60.1-60.1L73.4 499z"/></svg>
+          <span>Google Play</span>
+        </a>
+        <a href="#features" class="btn btn-black">Learn more</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="dashboard-preview">
+        <div class="dashboard-header">
+          <div class="dots"><span></span><span></span><span></span></div>
+        </div>
+        <div class="dashboard-content">
+          <div class="grid-placeholder">
+            <div class="grid-row">
+              <div class="grid-item active"></div>
+              <div class="grid-item"></div>
+              <div class="grid-item active"></div>
+              <div class="grid-item"></div>
+            </div>
+            <div class="grid-row">
+              <div class="grid-item"></div>
+              <div class="grid-item active"></div>
+              <div class="grid-item"></div>
+              <div class="grid-item active"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="logos-section">
+  <div class="container">
+    <p class="logos-title">Trusted by industry leaders across the globe</p>
+    <div class="logos-grid">
+      <div class="logo-item">PINTEREST</div>
+      <div class="logo-item">UBER</div>
+      <div class="logo-item">SQUARE</div>
+      <div class="logo-item">ADOBE</div>
+      <div class="logo-item">AIRWALLEX</div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-top: 132px;
+    padding-bottom: 80px;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: clamp(3.5rem, 8vw, 6rem);
+    color: var(--color-text-main);
+    margin-bottom: 2rem;
+    letter-spacing: -0.02em;
+  }
+
+  .text-accent {
+    color: var(--color-accent);
+    font-style: italic;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.125rem, 3vw, 1.5rem);
+    color: var(--color-text-body);
+    margin-bottom: 3rem;
+    line-height: 1.4;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    margin-bottom: 5rem;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 999px;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .btn-blue {
+    background: var(--color-primary);
+    color: white;
+  }
+
+  .btn-blue:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.15);
+  }
+
+  .btn-appstore, .btn-playstore {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 24px;
+    background: #000000;
+    color: #ffffff;
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .btn-appstore:hover, .btn-playstore:hover {
+    background: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+
+  .btn-appstore svg, .btn-playstore svg {
+    flex-shrink: 0;
+  }
+
+  .btn-black {
+    background: var(--color-text-main);
+    color: white;
+  }
+
+  .btn-black:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .hero-visual {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .dashboard-preview {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    aspect-ratio: 16/9;
+  }
+
+  .dashboard-header {
+    background: #f9fafb;
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+  }
+
+  .dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .dots span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #e5e7eb;
+  }
+
+  .dashboard-content {
+    padding: 40px;
+    height: 100%;
+  }
+
+  .grid-placeholder {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .grid-row {
+    display: flex;
+    gap: 20px;
+    height: 100px;
+  }
+
+  .grid-item {
+    flex: 1;
+    background: #f3f4f6;
+    border-radius: 8px;
+  }
+
+  .grid-item.active {
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+    border: 1px solid rgba(37, 99, 235, 0.1);
+  }
+
+  .logos-section {
+    padding: 60px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .logos-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-align: center;
+    color: #9ca3af;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .logos-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    opacity: 0.5;
+    filter: grayscale(1);
+  }
+
+  .logo-item {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: #4b5563;
+    letter-spacing: 0.1em;
+  }
+
+  @media (max-width: 768px) {
+    .logos-grid {
+      gap: 30px;
+    }
+    .hero-actions {
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
+    }
+    .btn-appstore, .btn-playstore, .btn-black {
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+</style>

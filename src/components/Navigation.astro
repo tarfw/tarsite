@@ -1,0 +1,117 @@
+---
+---
+
+<header class="header">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a href="/" class="logo">TAR</a>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="#features">Product</a></li>
+        <li><a href="#philosophy">Solution Space</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#contact">Resources</a></li>
+      </ul>
+
+      <div class="nav-right">
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    height: 52px;
+  }
+
+  .header :global(.container) {
+    height: 100%;
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+  }
+
+  .nav-left {
+    flex: 1; /* These two flex-1s ensure the middle links are exactly centered */
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    line-height: 1;
+  }
+
+  .nav-links {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+
+  .nav-links li {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
+  .nav-links a {
+    color: var(--color-text-body);
+    font-size: 13.5px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+  }
+
+  .nav-links a:hover {
+    color: var(--color-text-main);
+  }
+
+  .nav-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;
+  }
+
+  @media (max-width: 992px) {
+    .nav-links {
+      display: none;
+    }
+  }
+</style>
+
+

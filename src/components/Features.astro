@@ -1,0 +1,213 @@
+---
+const features = [
+  {
+    name: 'TRACE',
+    title: 'The AI Memory System',
+    subtitle: 'Memory that moves with the world.',
+    description: 'Every item in TAR lives in three dimensions of memory — State, Events, and Trace.',
+    items: [
+      { label: 'State', desc: 'The universal blueprint. What something is.' },
+      { label: 'Events', desc: 'What is happening right now.' },
+      { label: 'Trace', desc: 'The episodic memory. Every movement recorded.' },
+    ],
+  },
+  {
+    name: 'AGENTS',
+    title: 'Autonomous Intelligence',
+    subtitle: 'Intelligence at every coordinate.',
+    description: 'Every instance can have its own AI Agent. They monitor, decide, and act.',
+    items: [
+      { label: 'Monitor', desc: 'Temperature, stock levels, delays, congestion.' },
+      { label: 'Decide', desc: 'Reroute, switch locations, trigger alerts.' },
+      { label: 'Act', desc: 'Without dashboards. In milliseconds.' },
+    ],
+  },
+  {
+    name: 'RELAY',
+    title: 'The Nervous System',
+    subtitle: 'Relay is communication, social stream, decentralized system.',
+    description: 'Relay moves data between customer apps, rider apps, POS, warehouses, and AI agents, facilitating decentralized communication and social streams.',
+    items: [
+      { label: '400,000+ pings/sec', desc: 'High-speed WebSockets.' },
+      { label: 'Private vRack', desc: 'Secure networking.' },
+      { label: 'Burst-ready', desc: 'Built for festivals, sales, disasters. Connect with WhatsApp, Telegram, self-hosted chat with AI agents.' },
+    ],
+  },
+];
+---
+
+<section class="features section-padding" id="features" data-animate>
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">A city-scale AI <span class="text-accent">commerce platform</span></h2>
+      <p class="section-subtitle">
+        TAR is designed for the real world: offline-first businesses, hyperlocal supply chains, 
+        and real-time decisions for millions of concurrent users.
+      </p>
+    </div>
+
+    <div class="features-grid">
+      {features.map((feature) => (
+        <div class="feature-card">
+          <div class="feature-content">
+            <span class="feature-name">{feature.name}</span>
+            <h3 class="feature-title">{feature.title}</h3>
+            <p class="feature-description">{feature.description}</p>
+            <ul class="feature-list">
+              {feature.items.map((item) => (
+                <li>
+                  <svg class="check-icon" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                  </svg>
+                  <div>
+                    <span class="item-label">{item.label}</span>
+                    <span class="item-desc">{item.desc}</span>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="feature-visual-mini">
+            <div class="visual-blob"></div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .features {
+    background: #ffffff;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 80px;
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--color-text-main);
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+  }
+
+  .text-accent {
+    color: var(--color-accent);
+    font-style: italic;
+  }
+
+  .section-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-text-body);
+    line-height: 1.6;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 32px;
+  }
+
+  .feature-card {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 24px;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+    border-color: rgba(37, 99, 235, 0.1);
+  }
+
+  .feature-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-primary);
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .feature-title {
+    font-size: 1.75rem;
+    color: var(--color-text-main);
+    margin-bottom: 16px;
+    letter-spacing: -0.01em;
+  }
+
+  .feature-description {
+    font-size: 1rem;
+    color: var(--color-text-body);
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+
+  .feature-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .feature-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .check-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--color-accent);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .item-label {
+    display: block;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+  }
+
+  .item-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-body);
+  }
+
+  .feature-visual-mini {
+    margin-top: 40px;
+    height: 120px;
+    background: #f9fafb;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .visual-blob {
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle at center, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
+    top: -25%;
+    left: -25%;
+  }
+
+  @media (max-width: 768px) {
+    .feature-card {
+      padding: 32px;
+    }
+  }
+</style>
