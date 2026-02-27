@@ -8,14 +8,16 @@ const principles = [
 ];
 ---
 
-<section class="philosophy" id="philosophy">
+<section class="philosophy section-padding" id="philosophy">
   <div class="container">
-    <div class="philosophy-content">
-      <span class="section-label">TAR PHILOSOPHY</span>
-      <h2 class="section-title">PRINCIPLES</h2>
+    <div class="philosophy-content" data-animate>
+      <span class="section-label">Philosophy</span>
+      <h2 class="section-title">Our Principles</h2>
+      
       <div class="principles-list">
-        {principles.map((principle) => (
-          <div class="principle-item">
+        {principles.map((principle, index) => (
+          <div class="principle-item" style={`--delay: ${index * 0.08}s`}>
+            <span class="principle-number">{String(index + 1).padStart(2, '0')}</span>
             <span class="principle-text">{principle}</span>
           </div>
         ))}
@@ -26,54 +28,102 @@ const principles = [
 
 <style>
   .philosophy {
-    padding: 120px 0;
-    background: #fafafa;
+    background: #0a0a0a;
+    position: relative;
+    overflow: hidden;
   }
-  .container {
-    max-width: 1200px;
+
+  .philosophy::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 150%;
+    background: radial-gradient(ellipse, rgba(0, 102, 255, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .philosophy-content {
+    max-width: 900px;
     margin: 0 auto;
-    padding: 0 24px;
   }
+
   .section-label {
+    display: inline-block;
     font-size: 0.8125rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #0066ff;
-    display: block;
+    color: var(--color-accent);
     margin-bottom: 16px;
   }
-  .philosophy-content {
-    max-width: 800px;
-    margin: 0 auto 80px;
-  }
+
   .section-title {
-    font-size: 2.25rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #1a1a1a;
-    margin-bottom: 40px;
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: white;
+    margin-bottom: 60px;
   }
+
   .principles-list {
     display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+    flex-direction: column;
+    gap: 16px;
   }
+
   .principle-item {
-    background: #1a1a1a;
-    color: white;
-    padding: 14px 28px;
-    border-radius: 100px;
-    font-size: 0.9375rem;
-    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 28px 36px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    animation: slideIn 0.5s ease forwards;
+    animation-delay: var(--delay);
+    opacity: 0;
+    transform: translateX(-20px);
   }
-  @media (max-width: 968px) {
-    .principles-list {
-      justify-content: center;
+
+  @keyframes slideIn {
+    to {
+      opacity: 1;
+      transform: translateX(0);
     }
-    .section-title {
-      font-size: 1.75rem;
+  }
+
+  .principle-item:hover {
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.12);
+    transform: translateX(8px);
+  }
+
+  .principle-number {
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    letter-spacing: 0.05em;
+    opacity: 0.7;
+  }
+
+  .principle-text {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: white;
+    letter-spacing: -0.01em;
+  }
+
+  @media (max-width: 640px) {
+    .principle-item {
+      padding: 20px 24px;
+      gap: 20px;
+    }
+
+    .principle-text {
+      font-size: 1rem;
     }
   }
 </style>

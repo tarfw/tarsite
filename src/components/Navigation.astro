@@ -4,18 +4,28 @@
 <header class="header">
   <div class="container">
     <nav class="nav">
-      <div class="nav-left">
-        <a href="/" class="logo">TAR</a>
-      </div>
+      <a href="/" class="logo">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="8" fill="#0a0a0a"/>
+          <path d="M10 22V10h4l4 8 4-8h4v12h-4v-7l-3 6h-2l-3-6v7h-4z" fill="white"/>
+        </svg>
+        <span>TAR</span>
+      </a>
 
       <ul class="nav-links">
         <li><a href="#features">Product</a></li>
-        <li><a href="#philosophy">Solution Space</a></li>
         <li><a href="#pricing">Pricing</a></li>
-        <li><a href="#contact">Resources</a></li>
+        <li><a href="#philosophy">Philosophy</a></li>
+        <li><a href="#">Docs</a></li>
       </ul>
 
       <div class="nav-right">
+        <a href="#signup" class="btn-login">Log in</a>
+        <a href="#signup" class="btn-primary">Get Started</a>
+        <button class="mobile-menu-btn" aria-label="Menu">
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </nav>
   </div>
@@ -28,15 +38,16 @@
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.82);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    height: 52px;
+    background: rgba(250, 250, 250, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    height: 72px;
+    transition: all var(--transition-base);
   }
 
-  .header :global(.container) {
-    height: 100%;
+  .header:hover {
+    background: rgba(250, 250, 250, 0.95);
   }
 
   .nav {
@@ -44,74 +55,130 @@
     align-items: center;
     justify-content: space-between;
     height: 100%;
-    width: 100%;
-  }
-
-  .nav-left {
-    flex: 1; /* These two flex-1s ensure the middle links are exactly centered */
-    display: flex;
-    align-items: center;
-    height: 100%;
   }
 
   .logo {
-    font-size: 1.1rem;
-    font-weight: 700;
-    color: var(--color-text-main);
-    letter-spacing: -0.01em;
-    text-decoration: none;
     display: flex;
     align-items: center;
-    height: 100%;
-    line-height: 1;
+    gap: 12px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    text-decoration: none;
+    letter-spacing: -0.02em;
+  }
+
+  .logo svg {
+    transition: transform var(--transition-base);
+  }
+
+  .logo:hover svg {
+    transform: rotate(-5deg) scale(1.05);
   }
 
   .nav-links {
-    flex: 0 0 auto;
     display: flex;
     align-items: center;
-    gap: 32px;
+    gap: 40px;
     list-style: none;
     margin: 0;
     padding: 0;
-    height: 100%;
-  }
-
-  .nav-links li {
-    display: flex;
-    align-items: center;
-    height: 100%;
   }
 
   .nav-links a {
-    color: var(--color-text-body);
-    font-size: 13.5px;
+    font-size: 0.9375rem;
     font-weight: 500;
-    transition: color 0.2s ease;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    height: 100%;
-    padding: 0;
+    color: var(--color-text-body);
+    transition: color var(--transition-fast);
+    position: relative;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width var(--transition-base);
   }
 
   .nav-links a:hover {
     color: var(--color-text-main);
   }
 
+  .nav-links a:hover::after {
+    width: 100%;
+  }
+
   .nav-right {
-    flex: 1;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    height: 100%;
+    gap: 16px;
+  }
+
+  .btn-login {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-text-body);
+    padding: 8px 16px;
+    transition: color var(--transition-fast);
+  }
+
+  .btn-login:hover {
+    color: var(--color-text-main);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: white;
+    background: #0a0a0a;
+    border-radius: 100px;
+    transition: all var(--transition-base);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .btn-primary:hover {
+    background: #262626;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .mobile-menu-btn span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--color-text-main);
+    border-radius: 2px;
+    transition: all var(--transition-base);
   }
 
   @media (max-width: 992px) {
-    .nav-links {
+    .nav-links, .btn-login, .btn-primary {
       display: none;
+    }
+
+    .mobile-menu-btn {
+      display: flex;
     }
   }
 </style>
-
-
