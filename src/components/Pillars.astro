@@ -1,373 +1,278 @@
 ---
 const pillars = [
   {
-    letter: 'T',
+    number: '01',
     name: 'Trace',
     title: 'The AI Memory System',
-    tagline: 'Memory that moves with the world.',
-    description: 'Trace is the brain of TAR. Every item lives in three dimensions of memory.',
-    dimensions: [
-      {
-        name: 'State',
-        subtitle: 'The DNA',
-        description: 'The universal blueprint. What something is.',
-        examples: ['Iced Coffee recipe', 'Bike specifications', 'Medicine composition', 'Store identity'],
-        trait: 'Stable. Shareable. Global.',
-      },
-      {
-        name: 'Events',
-        subtitle: 'The Presence',
-        description: 'What is happening right now.',
-        examples: ['A sale at T. Nagar', 'A stock drop in Velachery', 'A delivery crossing an H3 cell', 'A price update from HQ'],
-        trait: 'Singular moments in time + location.',
-      },
-      {
-        name: 'Trace',
-        subtitle: 'The History',
-        description: 'The episodic memory. Every movement, sale, delay, and anomaly recorded.',
-        examples: ['Forecast demand before it spikes', 'Detect failures before humans notice', 'Train AI on real city behavior'],
-        trait: 'This is machine memory.',
-      },
+    description: 'Trace is the brain of TAR. Every item lives in three dimensions — giving your systems not just data, but understanding.',
+    items: [
+      { label: 'State',  sub: 'The DNA',      desc: 'The universal blueprint. What something is — its recipe, spec, identity. Stable. Shareable. Global.' },
+      { label: 'Events', sub: 'The Presence', desc: 'What is happening right now. A sale in T. Nagar. A stock drop in Velachery. Singular moments in time and location.' },
+      { label: 'Trace',  sub: 'The History',  desc: 'Every movement, sale, delay, and anomaly recorded as machine memory. Forecast demand. Detect failure. Train AI on real city behavior.' },
     ],
   },
   {
-    letter: 'A',
+    number: '02',
     name: 'Agents',
     title: 'Autonomous Intelligence',
-    tagline: 'Intelligence at every coordinate.',
-    description: 'Agents are TAR thinkers. Every instance can have its own AI Agent.',
-    capabilities: [
-      {
-        name: 'Monitor',
-        items: ['Temperature thresholds', 'Stock levels', 'Delivery delays', 'Network congestion'],
-      },
-      {
-        name: 'Decide',
-        items: ['Reroute deliveries around traffic', 'Switch fulfillment locations', 'Lock stock during conflicts', 'Trigger alerts before failure'],
-      },
-      {
-        name: 'Act',
-        items: ['Without dashboards', 'Without human polling', 'In milliseconds'],
-      },
+    description: 'Every instance can have its own AI Agent. They monitor, decide, and act — without dashboards, without polling, without delay.',
+    items: [
+      { label: 'Monitor', sub: 'Observe', desc: 'Temperature thresholds. Stock levels. Delivery delays. Network congestion. Agents watch everything so humans don\'t have to.' },
+      { label: 'Decide',  sub: 'Reason',  desc: 'Reroute deliveries. Switch fulfillment locations. Lock stock during conflicts. Trigger alerts before failure.' },
+      { label: 'Act',     sub: 'Execute', desc: 'Without dashboards. Without human polling. In milliseconds. Agents respond to reality, not to commands.' },
     ],
-    closing: 'Agents do not wait for commands. They respond to reality.',
   },
   {
-    letter: 'R',
+    number: '03',
     name: 'Relay',
     title: 'The Nervous System',
-    tagline: 'Relay is communication, social stream, decentralized system.',
-    description: 'Relay moves data between customer apps, rider apps, POS, warehouses, and AI agents.',
-    connections: ['Customer apps', 'Rider apps', 'POS devices', 'Warehouses', 'Bots', 'AI agents', 'WhatsApp', 'Telegram', 'Self-hosted chat'],
-    features: [
-      '400,000+ pings per second',
-      'High-speed WebSockets',
-      'Private vRack networking',
-      'Built for festivals, sales, disasters. Connect with AI agents.',
+    description: 'Relay moves data between every node in your network — customer apps, rider apps, POS, warehouses, bots, and AI agents — at city scale.',
+    items: [
+      { label: 'Speed',    sub: 'Throughput',   desc: '400,000+ pings per second over high-speed WebSockets. Built for festivals, flash sales, and disaster scenarios.' },
+      { label: 'Security', sub: 'Networking',   desc: 'Private vRack networking between all nodes and agents. Zero public internet exposure.' },
+      { label: 'Reach',    sub: 'Connectivity', desc: 'Customer apps. Rider apps. POS. Warehouses. WhatsApp. Telegram. AI agents. All connected, always.' },
     ],
-    closing: 'Relay does not sync databases. It synchronizes experience.',
   },
 ];
 ---
 
-<section class="pillars">
+<section class="pillars" id="architecture">
   <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">What is TAR?</h2>
-      <p class="section-subtitle">
-        TAR is a city-scale AI commerce and coordination platform designed for the real world:
-        offline-first businesses, hyperlocal supply chains, real-time decisions, 
-        millions of concurrent users, and zero tolerance for data loss or delay.
+
+    <!-- Section header -->
+    <div class="pillars-header" data-reveal>
+      <div class="header-left">
+        <span class="eyebrow">Architecture</span>
+        <h2 class="pillars-title">Three Pillars.</h2>
+      </div>
+      <p class="pillars-sub">
+        Trace remembers. Agents decide. Relay connects.<br />
+        One platform — end to end.
       </p>
     </div>
 
-    {pillars.map((pillar) => (
-      <div class="pillar-section">
-        <div class="pillar-header">
-          <span class="pillar-letter">{pillar.letter}</span>
-          <div>
-            <span class="pillar-name">{pillar.name}</span>
-            <h3 class="pillar-title">{pillar.title}</h3>
-            <p class="pillar-tagline">{pillar.tagline}</p>
-          </div>
+    <!-- Pillars -->
+    {pillars.map((p, pi) => (
+      <div class="pillar" data-reveal>
+
+        <!-- Pillar header row -->
+        <div class="pillar-head">
+          <span class="pillar-num">{p.number}</span>
+          <span class="pillar-name">{p.name}</span>
+          <h3 class="pillar-title">{p.title}</h3>
+          <p class="pillar-desc">{p.description}</p>
         </div>
 
-        <p class="pillar-description">{pillar.description}</p>
-
-        {pillar.dimensions && (
-          <div class="dimensions-grid">
-            {pillar.dimensions.map((dim) => (
-              <div class="dimension-card">
-                <h4 class="dimension-name">{dim.name}</h4>
-                <span class="dimension-subtitle">{dim.subtitle}</span>
-                <p class="dimension-description">{dim.description}</p>
-                <ul class="dimension-examples">
-                  {dim.examples.map((ex) => <li>{ex}</li>)}
-                </ul>
-                <span class="dimension-trait">{dim.trait}</span>
+        <!-- Items -->
+        <div class="pillar-items">
+          {p.items.map(item => (
+            <div class="item">
+              <div class="item-head">
+                <span class="item-label">{item.label}</span>
+                <span class="item-sub">{item.sub}</span>
               </div>
-            ))}
-          </div>
-        )}
-
-        {pillar.capabilities && (
-          <div class="capabilities-grid">
-            {pillar.capabilities.map((cap) => (
-              <div class="capability-card">
-                <h4 class="capability-name">{cap.name}</h4>
-                <ul class="capability-items">
-                  {cap.items.map((item) => <li>{item}</li>)}
-                </ul>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {pillar.connections && (
-          <div class="connections-section">
-            <div class="connections-grid">
-              {pillar.connections.map((conn) => (
-                <div class="connection-item">{conn}</div>
-              ))}
+              <p class="item-desc">{item.desc}</p>
             </div>
-          </div>
-        )}
+          ))}
+        </div>
 
-        {pillar.features && (
-          <div class="features-list">
-            {pillar.features.map((feature) => (
-              <div class="feature-item">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="#0066ff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                {feature}
-              </div>
-            ))}
-          </div>
-        )}
-
-        {pillar.closing && <p class="pillar-closing">{pillar.closing}</p>}
       </div>
     ))}
+
   </div>
 </section>
 
 <style>
-  .pillars {
-    padding: 120px 0;
-    background: #ffffff;
+.pillars {
+  background: var(--dark-bg);
+  color: white;
+  padding: 120px 0;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ── Section header ────────────────────────────── */
+.pillars-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: end;
+  padding-bottom: 72px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.header-left {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--red);
+}
+
+.pillars-title {
+  font-size: clamp(2.5rem, 5vw, 3.75rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  color: white;
+}
+
+.pillars-sub {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.40);
+  align-self: end;
+}
+
+/* ── Pillar ────────────────────────────────────── */
+.pillar {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 64px 0;
+}
+
+/* Pillar header: num · name · title · desc in a row */
+.pillar-head {
+  display: grid;
+  grid-template-columns: 48px 120px 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+  margin-bottom: 48px;
+}
+
+.pillar-num {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.20);
+  letter-spacing: 0.06em;
+  padding-top: 5px;
+}
+
+.pillar-name {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--red);
+  padding-top: 5px;
+}
+
+.pillar-title {
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: white;
+}
+
+.pillar-desc {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.40);
+}
+
+/* ── Items row ─────────────────────────────────── */
+.pillar-items {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  margin-left: 192px;
+}
+
+.item {
+  padding: 28px 32px 28px 0;
+  border-right: 1px solid rgba(255,255,255,0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.item:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.item-head {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.item-label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: -0.01em;
+}
+
+.item-sub {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.28);
+  letter-spacing: 0.02em;
+}
+
+.item-desc {
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.42);
+}
+
+/* ── Responsive ────────────────────────────────── */
+@media (max-width: 900px) {
+  .pillars-header {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
+
+  .pillar-head {
+    grid-template-columns: 40px 100px 1fr;
+    grid-template-rows: auto auto;
   }
-  .section-header {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 80px;
+
+  .pillar-desc {
+    grid-column: 1 / -1;
   }
-  .section-title {
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin-bottom: 20px;
-    letter-spacing: -0.02em;
+
+  .pillar-items {
+    margin-left: 0;
   }
-  .section-subtitle {
-    font-size: 1.125rem;
-    color: #666;
-    line-height: 1.8;
-  }
-  .pillar-section {
-    padding: 60px 0;
-    border-top: 1px solid #eaeaea;
-  }
-  .pillar-section:first-child {
-    padding-top: 0;
-    border-top: none;
-  }
-  .pillar-header {
-    display: flex;
-    align-items: flex-start;
-    gap: 24px;
+}
+
+@media (max-width: 640px) {
+  .pillars { padding: 80px 0; }
+  .container { padding: 0 24px; }
+
+  .pillar { padding: 48px 0; }
+
+  .pillar-head {
+    grid-template-columns: 1fr;
+    gap: 8px;
     margin-bottom: 32px;
   }
-  .pillar-letter {
-    font-size: 4rem;
-    font-weight: 700;
-    color: #0066ff;
-    line-height: 1;
+
+  .pillar-num { display: none; }
+
+  .pillar-items {
+    grid-template-columns: 1fr;
   }
-  .pillar-name {
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #0066ff;
-    display: block;
-    margin-bottom: 8px;
+
+  .item {
+    padding: 20px 0;
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
   }
-  .pillar-title {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin-bottom: 12px;
-    letter-spacing: -0.01em;
+
+  .item:last-child {
+    border-bottom: none;
   }
-  .pillar-tagline {
-    font-size: 1.125rem;
-    color: #666;
-    font-style: italic;
-  }
-  .pillar-description {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.8;
-    margin-bottom: 40px;
-  }
-  .dimensions-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-bottom: 40px;
-  }
-  .dimension-card {
-    background: #fafafa;
-    border: 1px solid #eaeaea;
-    border-radius: 12px;
-    padding: 28px;
-  }
-  .dimension-name {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin-bottom: 4px;
-  }
-  .dimension-subtitle {
-    font-size: 0.8125rem;
-    color: #0066ff;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    display: block;
-    margin-bottom: 12px;
-  }
-  .dimension-description {
-    font-size: 0.9375rem;
-    color: #666;
-    line-height: 1.7;
-    margin-bottom: 16px;
-  }
-  .dimension-examples {
-    list-style: none;
-    margin-bottom: 16px;
-  }
-  .dimension-examples li {
-    font-size: 0.875rem;
-    color: #444;
-    padding: 6px 0;
-    padding-left: 16px;
-    position: relative;
-  }
-  .dimension-examples li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: #0066ff;
-  }
-  .dimension-trait {
-    font-size: 0.8125rem;
-    color: #0066ff;
-    font-weight: 500;
-  }
-  .capabilities-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    margin-bottom: 40px;
-  }
-  .capability-card {
-    background: #fafafa;
-    border: 1px solid #eaeaea;
-    border-radius: 12px;
-    padding: 28px;
-  }
-  .capability-name {
-    font-size: 1.125rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin-bottom: 16px;
-  }
-  .capability-items {
-    list-style: none;
-  }
-  .capability-items li {
-    font-size: 0.875rem;
-    color: #444;
-    padding: 8px 0;
-    padding-left: 16px;
-    position: relative;
-  }
-  .capability-items li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: #0066ff;
-  }
-  .connections-section {
-    margin-bottom: 40px;
-  }
-  .connections-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-  .connection-item {
-    background: #f0f7ff;
-    color: #0066ff;
-    padding: 10px 18px;
-    border-radius: 100px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    border: 1px solid #cce0ff;
-  }
-  .features-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
-    margin-bottom: 40px;
-  }
-  .feature-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 0.9375rem;
-    color: #444;
-  }
-  .pillar-closing {
-    font-size: 1.125rem;
-    color: #1a1a1a;
-    font-weight: 500;
-    padding: 24px;
-    background: linear-gradient(135deg, #f0f7ff 0%, #faf5ff 100%);
-    border-radius: 12px;
-    border-left: 4px solid #0066ff;
-  }
-  @media (max-width: 968px) {
-    .dimensions-grid,
-    .capabilities-grid {
-      grid-template-columns: 1fr;
-    }
-    .pillar-header {
-      flex-direction: column;
-      gap: 16px;
-    }
-    .pillar-letter {
-      font-size: 3rem;
-    }
-    .features-list {
-      grid-template-columns: 1fr;
-    }
-  }
+}
 </style>

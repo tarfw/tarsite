@@ -1,280 +1,280 @@
 ---
 const features = [
   {
+    number: '01',
     name: 'TRACE',
     title: 'The AI Memory System',
-    description: 'Every item in TAR lives in three dimensions of memory — State, Events, and Trace.',
+    description: 'Every item in TAR lives in three dimensions of memory — State, Events, and Trace. Your systems don\'t just store data. They remember it.',
     items: [
-      { label: 'State', desc: 'The universal blueprint. What something is.' },
-      { label: 'Events', desc: 'What is happening right now.' },
-      { label: 'Trace', desc: 'The episodic memory. Every movement recorded.' },
+      { label: 'State',  desc: 'The universal blueprint. What something is — its recipe, spec, identity.' },
+      { label: 'Events', desc: 'What is happening right now. A sale. A stock drop. A singular moment.' },
+      { label: 'Trace',  desc: 'Every movement recorded. Forecast demand. Detect failure. Train AI.' },
     ],
-    color: '#0066ff',
+    color: '#c8102e',
   },
   {
+    number: '02',
     name: 'AGENTS',
     title: 'Autonomous Intelligence',
-    description: 'Every instance can have its own AI Agent. They monitor, decide, and act.',
+    description: 'Every instance can have its own AI Agent. They monitor, decide, and act — without dashboards, without polling, without delay.',
     items: [
-      { label: 'Monitor', desc: 'Temperature, stock levels, delays, congestion.' },
-      { label: 'Decide', desc: 'Reroute, switch locations, trigger alerts.' },
-      { label: 'Act', desc: 'Without dashboards. In milliseconds.' },
+      { label: 'Monitor', desc: 'Temperature thresholds. Stock levels. Delivery delays. Agents watch everything.' },
+      { label: 'Decide',  desc: 'Reroute deliveries. Switch fulfillment. Trigger alerts before failure.' },
+      { label: 'Act',     desc: 'Without dashboards. In milliseconds. Agents respond to reality.' },
     ],
-    color: '#00d4aa',
+    color: '#9333ea',
   },
   {
+    number: '03',
     name: 'RELAY',
     title: 'The Nervous System',
-    description: 'Relay moves data between customer apps, rider apps, POS, warehouses, and AI agents.',
+    description: 'Relay moves data between every node in your network — customer apps, rider apps, POS, warehouses, and AI agents — at city scale.',
     items: [
-      { label: '400,000+ pings/sec', desc: 'High-speed WebSockets.' },
-      { label: 'Private vRack', desc: 'Secure networking.' },
-      { label: 'Burst-ready', desc: 'Built for festivals, sales, disasters.' },
+      { label: 'Speed',    desc: '400,000+ events per second over high-speed WebSockets.' },
+      { label: 'Security', desc: 'Private vRack networking. Zero public internet exposure.' },
+      { label: 'Reach',    desc: 'Customer apps. Riders. POS. Warehouses. WhatsApp. All connected.' },
     ],
-    color: '#8b5cf6',
+    color: '#0066ff',
   },
 ];
 ---
 
-<section class="features section-padding" id="features">
-  <div class="container">
-    <div class="section-header" data-animate>
-      <span class="section-label">Product</span>
-      <h2 class="section-title">A city-scale AI <span class="text-accent">commerce platform</span></h2>
-      <p class="section-subtitle">
-        TAR is designed for the real world: offline-first businesses, hyperlocal supply chains, 
-        and real-time decisions for millions of concurrent users.
-      </p>
-    </div>
+<section class="features" id="features">
 
-    <div class="features-grid">
-      {features.map((feature, index) => (
-        <div class="feature-card" data-animate style={`--delay: ${index * 0.1}s; --accent: ${feature.color}`}>
-          <div class="feature-header">
-            <span class="feature-name">{feature.name}</span>
-            <div class="feature-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
-              </svg>
-            </div>
+  <div class="features-head">
+    <div class="container">
+      <span class="eyebrow" data-reveal>Product</span>
+      <div class="features-head-inner" data-reveal>
+        <h2 class="features-title">
+          A city-scale AI<br />commerce platform.
+        </h2>
+        <p class="features-intro">
+          TAR is designed for the real world: offline-first businesses,
+          hyperlocal supply chains, and real-time decisions for millions
+          of concurrent users.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="features-body">
+    {features.map((f, i) => (
+      <div class="feat-row" style={`--accent: ${f.color}; --i: ${i}`} data-reveal>
+        <div class="container feat-inner">
+
+          <div class="feat-meta">
+            <span class="feat-num">{f.number}</span>
+            <span class="feat-tag" style={`color: ${f.color}`}>{f.name}</span>
           </div>
-          
-          <h3 class="feature-title">{feature.title}</h3>
-          <p class="feature-description">{feature.description}</p>
-          
-          <ul class="feature-list">
-            {feature.items.map((item) => (
-              <li>
-                <div class="item-bullet"></div>
-                <div class="item-content">
-                  <span class="item-label">{item.label}</span>
-                  <span class="item-desc">{item.desc}</span>
+
+          <div class="feat-main">
+            <h3 class="feat-title">{f.title}</h3>
+            <p class="feat-desc">{f.description}</p>
+          </div>
+
+          <ul class="feat-items">
+            {f.items.map(item => (
+              <li class="feat-item">
+                <span class="feat-item-dot" style={`background: ${f.color}`}></span>
+                <div>
+                  <strong class="feat-item-label">{item.label}</strong>
+                  <span class="feat-item-desc">{item.desc}</span>
                 </div>
               </li>
             ))}
           </ul>
-          
-          <div class="feature-glow"></div>
+
         </div>
-      ))}
-    </div>
+      </div>
+    ))}
   </div>
+
 </section>
 
 <style>
-  .features {
-    background: var(--color-bg);
-    position: relative;
-  }
+/* ── Section ───────────────────────────────────── */
+.features {
+  background: var(--bg);
+}
 
-  .section-header {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 80px;
-  }
+/* ── Header ────────────────────────────────────── */
+.features-head {
+  padding: 120px 0 80px;
+  border-bottom: 1px solid var(--border);
+}
 
-  .section-label {
-    display: inline-block;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-primary);
-    margin-bottom: 16px;
-  }
+.eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--red);
+  margin-bottom: 28px;
+}
 
-  .section-title {
-    font-size: clamp(2rem, 5vw, 3rem);
-    color: var(--color-text-main);
-    margin-bottom: 20px;
-  }
+.features-head-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: end;
+}
 
-  .text-accent {
-    color: var(--color-accent);
-  }
+.features-title {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+}
 
-  .section-subtitle {
-    font-size: 1.125rem;
-    color: var(--color-text-muted);
-    line-height: 1.7;
-  }
+.features-intro {
+  font-size: 1.0625rem;
+  line-height: 1.72;
+  color: var(--body);
+  max-width: 420px;
+  padding-bottom: 4px;
+}
 
-  .features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+/* ── Feature rows ──────────────────────────────── */
+.features-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.feat-row {
+  border-bottom: 1px solid var(--border);
+  padding: 72px 0;
+  transition: background var(--dur-fast) ease;
+}
+
+.feat-row:hover {
+  background: rgba(0,0,0,0.012);
+}
+
+.feat-inner {
+  display: grid;
+  grid-template-columns: 160px 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* ── Meta ──────────────────────────────────────── */
+.feat-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 4px;
+}
+
+.feat-num {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.feat-tag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+/* ── Main ──────────────────────────────────────── */
+.feat-title {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.feat-desc {
+  font-size: 0.9375rem;
+  line-height: 1.72;
+  color: var(--body);
+  max-width: 380px;
+}
+
+/* ── Items ─────────────────────────────────────── */
+.feat-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--border);
+}
+
+.feat-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.feat-item-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.feat-item-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 3px;
+  letter-spacing: -0.01em;
+}
+
+.feat-item-desc {
+  display: block;
+  font-size: 0.8375rem;
+  color: var(--body);
+  line-height: 1.55;
+}
+
+/* ── Responsive ────────────────────────────────── */
+@media (max-width: 900px) {
+  .features-head-inner {
+    grid-template-columns: 1fr;
     gap: 24px;
   }
 
-  .feature-card {
-    background: white;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
-    padding: 40px;
-    position: relative;
-    overflow: hidden;
-    transition: all var(--transition-base);
-    animation: fadeInUp 0.6s ease forwards;
-    animation-delay: var(--delay);
-    opacity: 0;
+  .feat-inner {
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: auto auto;
+    gap: 32px;
   }
 
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .feat-items {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .features-head {
+    padding: 80px 0 60px;
   }
 
-  .feature-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--accent);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  .feat-row {
+    padding: 56px 0;
   }
 
-  .feature-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 24px;
+  .feat-inner {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 
-  .feature-name {
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.15em;
-    color: var(--accent);
-  }
-
-  .feature-icon {
-    width: 40px;
-    height: 40px;
-    display: flex;
+  .feat-meta {
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    background: var(--color-bg);
-    border-radius: 50%;
-    color: var(--color-text-body);
-    transition: all var(--transition-base);
+    gap: 12px;
   }
-
-  .feature-card:hover .feature-icon {
-    background: var(--accent);
-    color: white;
-    transform: translate(4px, -4px);
-  }
-
-  .feature-icon svg {
-    width: 18px;
-    height: 18px;
-  }
-
-  .feature-title {
-    font-size: 1.5rem;
-    color: var(--color-text-main);
-    margin-bottom: 12px;
-    letter-spacing: -0.01em;
-  }
-
-  .feature-description {
-    font-size: 0.9375rem;
-    color: var(--color-text-body);
-    line-height: 1.6;
-    margin-bottom: 28px;
-  }
-
-  .feature-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .feature-list li {
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-  }
-
-  .item-bullet {
-    width: 6px;
-    height: 6px;
-    background: var(--accent);
-    border-radius: 50%;
-    margin-top: 7px;
-    flex-shrink: 0;
-  }
-
-  .item-content {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-
-  .item-label {
-    font-size: 0.9375rem;
-    font-weight: 600;
-    color: var(--color-text-main);
-  }
-
-  .item-desc {
-    font-size: 0.8125rem;
-    color: var(--color-text-muted);
-  }
-
-  .feature-glow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 200px;
-    background: linear-gradient(to bottom, var(--accent), transparent);
-    opacity: 0;
-    transition: opacity var(--transition-base);
-    pointer-events: none;
-  }
-
-  .feature-card:hover .feature-glow {
-    opacity: 0.04;
-  }
-
-  @media (max-width: 1024px) {
-    .features-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 640px) {
-    .features-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .feature-card {
-      padding: 32px;
-    }
-  }
+}
 </style>

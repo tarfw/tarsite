@@ -1,129 +1,163 @@
 ---
-const principles = [
-  'Events over state',
-  'Memory over dashboards',
-  'Intelligence over automation',
-  'Local-first, always',
-  'Scale is a property, not a feature',
+const statements = [
+  {
+    number: '01',
+    heading: 'Events over state',
+    body: 'The world doesn\'t wait. Neither should your data. We treat every action as a first-class signal — not an afterthought logged to a database.',
+  },
+  {
+    number: '02',
+    heading: 'Memory over dashboards',
+    body: 'Dashboards show you the past. Memory lets you act on it. TAR persists context so your systems can reason, not just report.',
+  },
+  {
+    number: '03',
+    heading: 'Intelligence over automation',
+    body: 'Automation follows rules. Intelligence breaks them when it needs to. We build for systems that adapt — not systems that comply.',
+  },
+  {
+    number: '04',
+    heading: 'Local-first, always',
+    body: 'Latency is a tax. We refuse to pay it. Every TAR node runs at the edge, close to the people it serves.',
+  },
+  {
+    number: '05',
+    heading: 'Scale is a property, not a feature',
+    body: 'You shouldn\'t have to re-architect when you grow. Scale is baked in from day one — invisible until you need it, ready when you do.',
+  },
 ];
 ---
 
-<section class="philosophy section-padding" id="philosophy">
-  <div class="container">
-    <div class="philosophy-content" data-animate>
-      <span class="section-label">Philosophy</span>
-      <h2 class="section-title">Our Principles</h2>
-      
-      <div class="principles-list">
-        {principles.map((principle, index) => (
-          <div class="principle-item" style={`--delay: ${index * 0.08}s`}>
-            <span class="principle-number">{String(index + 1).padStart(2, '0')}</span>
-            <span class="principle-text">{principle}</span>
-          </div>
-        ))}
-      </div>
+<section class="manifesto" id="philosophy">
+
+  <div class="manifesto-header">
+    <div class="container">
+      <span class="manifesto-eyebrow" data-reveal>Manifesto</span>
+      <h2 class="manifesto-title" data-reveal>
+        We believe the next<br />
+        generation of software<br />
+        <em>thinks</em> before it acts.
+      </h2>
     </div>
   </div>
+
+  <div class="manifesto-body">
+    {statements.map((s, i) => (
+      <div class="statement" data-reveal style={`--i: ${i}`}>
+        <div class="container statement-inner">
+          <span class="statement-num">{s.number}</span>
+          <div class="statement-content">
+            <h3 class="statement-heading">{s.heading}</h3>
+            <p class="statement-body">{s.body}</p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
 </section>
 
 <style>
-  .philosophy {
-    background: #0a0a0a;
-    position: relative;
-    overflow: hidden;
+/* ── Section ───────────────────────────────────── */
+.manifesto {
+  background: var(--dark-bg);
+  color: white;
+}
+
+/* ── Header ────────────────────────────────────── */
+.manifesto-header {
+  padding: 120px 0 80px;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.manifesto-eyebrow {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--red);
+  margin-bottom: 32px;
+}
+
+.manifesto-title {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  color: white;
+  max-width: 780px;
+}
+
+.manifesto-title em {
+  font-style: italic;
+  color: rgba(255,255,255,0.40);
+}
+
+/* ── Statements ────────────────────────────────── */
+.manifesto-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.statement {
+  border-bottom: 1px solid var(--border-dark);
+  transition: background var(--dur-fast) ease;
+}
+
+.statement:hover {
+  background: rgba(255,255,255,0.02);
+}
+
+.statement-inner {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 48px;
+  align-items: start;
+  padding: 52px 0;
+}
+
+.statement-num {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.20);
+  letter-spacing: 0.06em;
+  padding-top: 6px;
+}
+
+.statement-content {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.statement-heading {
+  font-size: clamp(1.375rem, 2.2vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: white;
+}
+
+.statement-body {
+  font-size: 1.0rem;
+  line-height: 1.72;
+  color: rgba(255,255,255,0.45);
+  max-width: 560px;
+}
+
+/* ── Responsive ────────────────────────────────── */
+@media (max-width: 768px) {
+  .manifesto-header {
+    padding: 80px 0 60px;
   }
 
-  .philosophy::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -20%;
-    width: 60%;
-    height: 150%;
-    background: radial-gradient(ellipse, rgba(0, 102, 255, 0.08) 0%, transparent 60%);
-    pointer-events: none;
-  }
-
-  .philosophy-content {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    display: inline-block;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-accent);
-    margin-bottom: 16px;
-  }
-
-  .section-title {
-    font-size: clamp(2rem, 5vw, 3rem);
-    color: white;
-    margin-bottom: 60px;
-  }
-
-  .principles-list {
-    display: flex;
-    flex-direction: column;
+  .statement-inner {
+    grid-template-columns: 1fr;
     gap: 16px;
+    padding: 40px 0;
   }
 
-  .principle-item {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    padding: 28px 36px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.06);
-    border-radius: var(--radius-lg);
-    transition: all var(--transition-base);
-    animation: slideIn 0.5s ease forwards;
-    animation-delay: var(--delay);
-    opacity: 0;
-    transform: translateX(-20px);
+  .statement-num {
+    display: none;
   }
-
-  @keyframes slideIn {
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  .principle-item:hover {
-    background: rgba(255, 255, 255, 0.06);
-    border-color: rgba(255, 255, 255, 0.12);
-    transform: translateX(8px);
-  }
-
-  .principle-number {
-    font-family: var(--font-display);
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--color-accent);
-    letter-spacing: 0.05em;
-    opacity: 0.7;
-  }
-
-  .principle-text {
-    font-family: var(--font-display);
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: white;
-    letter-spacing: -0.01em;
-  }
-
-  @media (max-width: 640px) {
-    .principle-item {
-      padding: 20px 24px;
-      gap: 20px;
-    }
-
-    .principle-text {
-      font-size: 1rem;
-    }
-  }
+}
 </style>

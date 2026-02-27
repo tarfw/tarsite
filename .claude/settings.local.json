@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:bird.com)",
+      "WebSearch",
+      "Bash(node:*)",
+      "WebFetch(domain:squareup.com)"
+    ]
+  }
+}

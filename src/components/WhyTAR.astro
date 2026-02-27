@@ -1,290 +1,219 @@
 ---
+const dimensions = [
+  {
+    number: '01',
+    title: 'The Dimension of Space',
+    description: 'Every asset, rider, and event is assigned a precise coordinate. We don\'t just list items — we map their existence in a global H3-indexed grid.',
+    specs: [
+      { label: 'Precision',  value: '1 m²'       },
+      { label: 'Indexing',   value: 'H3 Level 15' },
+      { label: 'Sharding',   value: 'Native geo'  },
+    ],
+  },
+  {
+    number: '02',
+    title: 'The Dimension of Time',
+    description: 'Time isn\'t just a timestamp in TAR. It\'s a traversable stream. Trace records every micro-event, letting AI agents replay history and predict future spikes.',
+    specs: [
+      { label: 'Throughput',  value: '1.2M events/s' },
+      { label: 'Resolution',  value: 'Nanoseconds'   },
+      { label: 'Persistence', value: 'Zero-loss'     },
+    ],
+  },
+  {
+    number: '03',
+    title: 'The Intelligence Layer',
+    description: 'Where Space and Time meet, Agents are born. Autonomous intelligence that lives at the edge — deciding and acting without human dashboards.',
+    specs: [
+      { label: 'Inference', value: 'Local-first'   },
+      { label: 'Logic',     value: 'Decentralized' },
+      { label: 'Recovery',  value: 'Autonomous'    },
+    ],
+  },
+];
 ---
 
-<section class="space-time" id="why-tar">
+<section class="why" id="why-tar">
   <div class="container">
-    <div class="sticky-intro" data-animate>
-      <div class="badge">Architecture</div>
-      <h2 class="title">Built for <br/><span class="accent">Space-Time Scale</span></h2>
-      <p class="description">
-        Traditional systems are built for the web. <br/>
-        <strong>TAR is built for the physical world.</strong>
-      </p>
-    </div>
 
-    <div class="scale-grid">
-      <div class="scale-item" data-animate>
-        <div class="scale-visual">
-          <div class="coord-system">
-            <div class="axis x"></div>
-            <div class="axis y"></div>
-            <div class="axis z"></div>
-            <div class="point p1"></div>
-            <div class="point p2"></div>
-            <div class="point p3"></div>
-          </div>
-        </div>
-        <div class="scale-info">
-          <span class="num">01</span>
-          <h3>The Dimension of Space</h3>
-          <p>Every asset, rider, and event is assigned a precise coordinate. We don't just "list" items; we map their existence in a global H3-indexed grid.</p>
-          <ul class="stats">
-            <li>Precision: 1m²</li>
-            <li>Indexing: H3-Level 15</li>
-            <li>Native Geo-Sharding</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="scale-item reverse" data-animate>
-        <div class="scale-visual">
-          <div class="time-stream">
-            <div class="wave"></div>
-            <div class="wave"></div>
-            <div class="wave"></div>
-            <div class="playhead"></div>
-          </div>
-        </div>
-        <div class="scale-info">
-          <span class="num">02</span>
-          <h3>The Dimension of Time</h3>
-          <p>Time isn't just a timestamp in TAR. It's a traversable stream. Trace records every micro-event, allowing AI agents to replay history and predict future spikes.</p>
-          <ul class="stats">
-            <li>Throughput: 1.2M events/s</li>
-            <li>Resolution: Nanoseconds</li>
-            <li>Zero-loss Persistence</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="scale-item" data-animate>
-        <div class="scale-visual">
-          <div class="ai-nervous-system">
-            <div class="core"></div>
-            <div class="connection"></div>
-            <div class="connection"></div>
-            <div class="connection"></div>
-            <div class="node-small"></div>
-            <div class="node-small"></div>
-            <div class="node-small"></div>
-          </div>
-        </div>
-        <div class="scale-info">
-          <span class="num">03</span>
-          <h3>The Intelligence Layer</h3>
-          <p>Where Space and Time meet, Agents are born. Autonomous intelligence that lives at the edge, deciding and acting without human dashboards.</p>
-          <ul class="stats">
-            <li>Local-first Inference</li>
-            <li>Decentralized Logic</li>
-            <li>Autonomous Recovery</li>
-          </ul>
-        </div>
+    <div class="why-header" data-reveal>
+      <span class="why-eyebrow">Why TAR</span>
+      <div class="why-head-body">
+        <h2 class="why-title">Built for<br />Space-Time Scale.</h2>
+        <p class="why-sub">Traditional systems are built for the web.<br />TAR is built for the physical world.</p>
       </div>
     </div>
+
+    {dimensions.map((d, i) => (
+      <div class="dim" style={`--i: ${i}`} data-reveal>
+        <div class="dim-meta">
+          <span class="dim-num">{d.number}</span>
+        </div>
+        <div class="dim-main">
+          <h3 class="dim-title">{d.title}</h3>
+          <p class="dim-desc">{d.description}</p>
+        </div>
+        <div class="dim-specs">
+          {d.specs.map(s => (
+            <div class="spec-row">
+              <span class="spec-label">{s.label}</span>
+              <span class="spec-value">{s.value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+
   </div>
 </section>
 
 <style>
-  .space-time {
-    background: #000000;
-    color: #ffffff;
-    padding: 160px 0;
-    overflow: hidden;
+/* ── Section ───────────────────────────────────── */
+.why {
+  background: var(--dark-bg);
+  color: white;
+  padding: 120px 0;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ── Header ────────────────────────────────────── */
+.why-header {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 48px;
+  align-items: end;
+  padding-bottom: 80px;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+.why-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--red);
+}
+
+.why-head-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.why-title {
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  color: white;
+}
+
+.why-sub {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.45);
+  max-width: 400px;
+}
+
+/* ── Dimensions ────────────────────────────────── */
+.dim {
+  display: grid;
+  grid-template-columns: 220px 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  padding: 64px 0;
+  border-bottom: 1px solid var(--border-dark);
+}
+
+/* Meta */
+.dim-meta { padding-top: 4px; }
+
+.dim-num {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 0.06em;
+}
+
+/* Main */
+.dim-main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dim-title {
+  font-size: clamp(1.375rem, 2vw, 1.875rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: white;
+}
+
+.dim-desc {
+  font-size: 0.9375rem;
+  line-height: 1.72;
+  color: rgba(255,255,255,0.42);
+}
+
+/* Specs */
+.dim-specs {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+
+.spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+}
+
+.spec-label {
+  font-size: 0.8125rem;
+  color: rgba(255,255,255,0.32);
+}
+
+.spec-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  letter-spacing: -0.01em;
+}
+
+/* ── Responsive ────────────────────────────────── */
+@media (max-width: 900px) {
+  .why-header {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 40px;
+  .dim {
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: auto auto;
   }
 
-  .sticky-intro {
-    text-align: center;
-    margin-bottom: 120px;
+  .dim-specs {
+    grid-column: 1 / -1;
   }
+}
 
-  .badge {
-    display: inline-block;
-    padding: 6px 14px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 999px;
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-accent);
-    margin-bottom: 24px;
-  }
+@media (max-width: 640px) {
+  .why { padding: 80px 0; }
+  .container { padding: 0 24px; }
 
-  .title {
-    font-size: clamp(3.5rem, 10vw, 6.5rem);
-    line-height: 0.95;
-    letter-spacing: -0.04em;
-    margin-bottom: 40px;
-  }
-
-  .title .accent {
-    font-family: var(--font-serif);
-    font-style: italic;
-    color: var(--color-accent);
-    font-weight: 400;
-  }
-
-  .description {
-    font-size: 1.5rem;
-    color: rgba(255, 255, 255, 0.5);
-    max-width: 600px;
-    margin: 0 auto;
-    line-height: 1.4;
-  }
-
-  .description strong {
-    color: #ffffff;
-    font-weight: 500;
-  }
-
-  /* Grid System */
-  .scale-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 160px;
-  }
-
-  .scale-item {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: center;
-  }
-
-  .scale-item.reverse {
-    direction: rtl;
-  }
-
-  .scale-item.reverse .scale-info {
-    direction: ltr;
-  }
-
-  .scale-visual {
-    position: relative;
-    aspect-ratio: 1;
-    background: radial-gradient(circle at center, rgba(37, 99, 235, 0.05) 0%, transparent 70%);
-    border-radius: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(255, 255, 255, 0.03);
-  }
-
-  .num {
-    font-family: var(--font-serif);
-    font-size: 4rem;
-    color: var(--color-accent);
-    opacity: 0.3;
-    display: block;
-    line-height: 1;
-    margin-bottom: 24px;
-  }
-
-  .scale-info h3 {
-    font-size: 2.5rem;
-    margin-bottom: 24px;
-    letter-spacing: -0.02em;
-  }
-
-  .scale-info p {
-    font-size: 1.125rem;
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.6);
-    margin-bottom: 40px;
-  }
-
-  .stats {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
+  .dim {
+    grid-template-columns: 1fr;
     gap: 24px;
+    padding: 48px 0;
   }
 
-  .stats li {
-    font-size: 0.8125rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: #ffffff;
-    padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 8px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-  }
-
-  /* Visual Elements */
-  .coord-system {
-    position: relative;
-    width: 200px;
-    height: 200px;
-  }
-
-  .axis {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.1);
-  }
-
-  .axis.x { width: 100%; height: 1px; top: 50%; left: 0; }
-  .axis.y { width: 1px; height: 100%; left: 50%; top: 0; }
-  .axis.z { width: 140%; height: 1px; top: 50%; left: -20%; transform: rotate(45deg); }
-
-  .point {
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background: var(--color-accent);
-    border-radius: 50%;
-    box-shadow: 0 0 20px var(--color-accent);
-    animation: drift 6s infinite alternate ease-in-out;
-  }
-
-  .p2 { top: 20%; left: 30%; animation-delay: -1s; }
-  .p3 { bottom: 25%; right: 20%; animation-delay: -3s; }
-
-  @keyframes drift {
-    from { transform: translate(0, 0); }
-    to { transform: translate(20px, -20px); }
-  }
-
-  .time-stream {
-    width: 100%;
-    padding: 0 40px;
-    position: relative;
-  }
-
-  .wave {
-    height: 60px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    margin-bottom: 12px;
-    border-radius: 30px;
-    background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.05), transparent);
-    animation: slide 3s infinite linear;
-  }
-
-  @keyframes slide {
-    from { background-position: -200% 0; }
-    to { background-position: 200% 0; }
-  }
-
-  @media (max-width: 992px) {
-    .scale-item, .scale-item.reverse {
-      grid-template-columns: 1fr;
-      gap: 48px;
-      direction: ltr;
-    }
-    .scale-visual {
-      aspect-ratio: 16/9;
-    }
-    .title {
-      font-size: 3.5rem;
-    }
-  }
+  .dim-meta { display: none; }
+}
 </style>

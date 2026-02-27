@@ -1,568 +1,365 @@
 ---
 const stats = [
-  { value: '400K+', label: 'Events/sec' },
-  { value: '99.99%', label: 'Uptime' },
-  { value: '50ms', label: 'Latency' },
-  { value: '1B+', label: 'Daily events' },
+  { value: '400K+',  label: 'Events / sec' },
+  { value: '99.99%', label: 'Uptime SLA'   },
+  { value: '< 50ms', label: 'Latency'      },
+  { value: '1B+',    label: 'Daily events' },
 ];
 ---
 
 <section class="hero">
-  <div class="hero-bg">
-    <div class="hero-gradient"></div>
-    <div class="hero-pattern"></div>
-  </div>
-  
   <div class="container">
-    <div class="hero-content" data-animate>
+
+    <!-- Top meta row -->
+    <div class="hero-meta" data-reveal>
       <div class="hero-badge">
         <span class="badge-dot"></span>
-        <span>Now in public beta</span>
+        Public beta — now open
       </div>
-      
-      <h1 class="hero-title">
-        The operating system<br />
-        <span class="text-gradient">for the AI era</span>
-      </h1>
-      
-      <p class="hero-subtitle">
-        Memory. Intelligence. Connectivity.<br />
-        Built for millions moving in real time.
-      </p>
-      
-      <div class="hero-actions">
-        <a href="#signup" class="btn-primary-large">
-          Start building free
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M4 10h12m-4-4l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </a>
-        <a href="#features" class="btn-secondary">View demo</a>
+      <span class="hero-category">Operating System</span>
+    </div>
+
+    <!-- Giant headline -->
+    <h1 class="hero-title" data-reveal>
+      <span class="line line-1">The</span>
+      <span class="line line-2">operating<em>system</em></span>
+      <span class="line line-3">for the</span>
+      <span class="line line-4 line-red">AI era.</span>
+    </h1>
+
+    <!-- Bottom row: sub + actions + stats -->
+    <div class="hero-bottom" data-reveal>
+
+      <div class="hero-sub-col">
+        <p class="hero-sub">
+          Memory. Intelligence. Connectivity.
+          Built for millions moving in real time.
+        </p>
+        <div class="hero-actions">
+          <a href="#signup" class="btn-primary">
+            Start building free
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9.5 4l4.5 4-4.5 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href="#features" class="btn-ghost">See how it works</a>
+        </div>
       </div>
-      
+
       <div class="hero-stats">
-        {stats.map((stat) => (
-          <div class="stat-item">
-            <span class="stat-value">{stat.value}</span>
-            <span class="stat-label">{stat.label}</span>
+        {stats.map(s => (
+          <div class="stat">
+            <span class="stat-value">{s.value}</span>
+            <span class="stat-label">{s.label}</span>
           </div>
         ))}
       </div>
+
     </div>
-    
-    <div class="hero-visual" data-animate="scale">
-      <div class="dashboard-mockup">
-        <div class="mockup-header">
-          <div class="mockup-dots">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div class="mockup-url">tar.live/dashboard</div>
-        </div>
-        <div class="mockup-content">
-          <div class="mockup-sidebar">
-            <div class="sidebar-item active"></div>
-            <div class="sidebar-item"></div>
-            <div class="sidebar-item"></div>
-            <div class="sidebar-item"></div>
-          </div>
-          <div class="mockup-main">
-            <div class="main-header">
-              <div class="header-title"></div>
-              <div class="header-actions">
-                <div class="action-btn"></div>
-                <div class="action-btn primary"></div>
-              </div>
-            </div>
-            <div class="main-grid">
-              <div class="grid-card large">
-                <div class="card-chart">
-                  <svg viewBox="0 0 200 60" class="chart-line">
-                    <path d="M0 50 Q30 45 50 35 T100 30 T150 20 T200 15" fill="none" stroke="#0066ff" stroke-width="2"/>
-                    <path d="M0 50 Q30 45 50 35 T100 30 T150 20 T200 15 L200 60 L0 60 Z" fill="url(#chartGradient)" opacity="0.3"/>
-                    <defs>
-                      <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stop-color="#0066ff"/>
-                        <stop offset="100%" stop-color="#0066ff" stop-opacity="0"/>
-                      </linearGradient>
-                    </defs>
-                  </svg>
-                </div>
-              </div>
-              <div class="grid-card">
-                <div class="card-icon"></div>
-                <div class="card-text"></div>
-              </div>
-              <div class="grid-card">
-                <div class="card-icon accent"></div>
-                <div class="card-text"></div>
-              </div>
-              <div class="grid-card">
-                <div class="card-icon"></div>
-                <div class="card-text"></div>
-              </div>
-              <div class="grid-card">
-                <div class="card-icon accent"></div>
-                <div class="card-text"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
   </div>
 </section>
 
-<section class="logos-section">
+<section class="logos">
   <div class="container">
-    <p class="logos-title">Trusted by industry leaders</p>
-    <div class="logos-track">
-      <div class="logo-item">SHOPIFY</div>
-      <div class="logo-item">UBER</div>
-      <div class="logo-item">AIRBNB</div>
-      <div class="logo-item">STRIPE</div>
-      <div class="logo-item">NOTION</div>
-      <div class="logo-item">SLACK</div>
+    <div class="logos-row">
+      <span class="logos-label">Trusted by</span>
+      <span>AGARAM</span>
+      <span>ULA</span>
+      <span>IL</span>
+      <span>PAY</span>
+      <span>ELUTHU</span>
+      <span>PESU</span>
     </div>
   </div>
 </section>
 
 <style>
-  .hero {
-    position: relative;
-    padding: 160px 0 100px;
-    overflow: hidden;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+/* ── Section ───────────────────────────────────── */
+.hero {
+  padding: 148px 0 96px;
+  background: var(--bg);
+  overflow: hidden;
+}
 
-  .hero-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-  }
+.hero .container {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
 
-  .hero-gradient {
-    position: absolute;
-    top: -50%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 150%;
-    height: 100%;
-    background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0, 102, 255, 0.06) 0%, transparent 60%);
-  }
+/* ── Meta row ──────────────────────────────────── */
+.hero-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
 
-  .hero-pattern {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: 
-      radial-gradient(circle at 20% 30%, rgba(0, 212, 170, 0.04) 0%, transparent 30%),
-      radial-gradient(circle at 80% 70%, rgba(0, 102, 255, 0.04) 0%, transparent 30%);
-  }
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+}
 
-  .hero-content {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 80px;
-  }
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--red);
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: pulse-dot 2.4s ease-in-out infinite;
+}
 
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    background: rgba(0, 102, 255, 0.08);
-    border: 1px solid rgba(0, 102, 255, 0.15);
-    border-radius: 100px;
-    font-size: 0.8125rem;
-    font-weight: 500;
-    color: var(--color-primary);
-    margin-bottom: 32px;
-  }
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
 
-  .badge-dot {
-    width: 6px;
-    height: 6px;
-    background: var(--color-accent);
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-  }
+.hero-category {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
 
-  @keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.6; transform: scale(1.2); }
-  }
+/* ── Giant headline ────────────────────────────── */
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(4.5rem, 12vw, 10.5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+  color: var(--ink);
+  margin-bottom: 80px;
+  gap: 0;
+}
 
+.line {
+  display: block;
+}
+
+/* line 2: "operating system" — mixed weight/style */
+.line-2 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.2em;
+}
+
+.line-2 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink-3);
+  font-size: 0.9em;
+  letter-spacing: -0.03em;
+}
+
+/* line 4: red */
+.line-red {
+  color: var(--red);
+}
+
+/* ── Bottom row ────────────────────────────────── */
+.hero-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: end;
+  border-top: 1px solid var(--border);
+  padding-top: 48px;
+}
+
+/* ── Sub + actions ─────────────────────────────── */
+.hero-sub-col {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.hero-sub {
+  font-size: 1.125rem;
+  color: var(--body);
+  line-height: 1.65;
+  max-width: 360px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 26px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--red);
+  border-radius: var(--r-pill);
+  text-decoration: none;
+  transition: background var(--dur-fast) ease,
+              transform var(--dur-fast) ease;
+  white-space: nowrap;
+}
+
+.btn-primary:hover {
+  background: var(--red-dark);
+  transform: scale(1.03);
+}
+
+.btn-primary svg {
+  transition: transform var(--dur-fast) ease;
+}
+
+.btn-primary:hover svg {
+  transform: translateX(3px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  padding: 13px 26px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--body);
+  background: transparent;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-pill);
+  text-decoration: none;
+  transition: border-color var(--dur-fast) ease,
+              color var(--dur-fast) ease;
+  white-space: nowrap;
+}
+
+.btn-ghost:hover {
+  border-color: var(--ink-3);
+  color: var(--ink);
+}
+
+/* ── Stats ─────────────────────────────────────── */
+.hero-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px 24px;
+  justify-items: start;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.375rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* ── Logos strip ───────────────────────────────── */
+.logos {
+  border-top: 1px solid var(--border);
+  padding: 28px 0;
+}
+
+.logos-row {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.logos-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+  padding-right: 8px;
+  border-right: 1px solid var(--border);
+}
+
+.logos-row span:not(.logos-label) {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--ink-3);
+  letter-spacing: 0.06em;
+  opacity: 0.35;
+  white-space: nowrap;
+}
+
+/* ── Responsive ────────────────────────────────── */
+@media (max-width: 860px) {
   .hero-title {
-    font-size: clamp(2.5rem, 7vw, 4.5rem);
-    font-weight: 700;
-    line-height: 1.05;
-    letter-spacing: -0.03em;
-    color: var(--color-text-main);
-    margin-bottom: 24px;
+    font-size: clamp(3.5rem, 10vw, 6rem);
+    margin-bottom: 56px;
   }
 
-  .text-gradient {
-    background: linear-gradient(135deg, #0066ff 0%, #00d4aa 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .hero-subtitle {
-    font-size: clamp(1.125rem, 2.5vw, 1.375rem);
-    color: var(--color-text-muted);
-    margin-bottom: 40px;
-    line-height: 1.5;
-  }
-
-  .hero-actions {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    margin-bottom: 60px;
-    flex-wrap: wrap;
-  }
-
-  .btn-primary-large {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 16px 32px;
-    font-size: 1rem;
-    font-weight: 600;
-    color: white;
-    background: #0a0a0a;
-    border-radius: 100px;
-    transition: all var(--transition-base);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  }
-
-  .btn-primary-large:hover {
-    background: #262626;
-    transform: translateY(-3px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
-  }
-
-  .btn-primary-large svg {
-    transition: transform var(--transition-base);
-  }
-
-  .btn-primary-large:hover svg {
-    transform: translateX(4px);
-  }
-
-  .btn-secondary {
-    display: inline-flex;
-    align-items: center;
-    padding: 16px 32px;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--color-text-main);
-    background: white;
-    border: 1px solid var(--color-border);
-    border-radius: 100px;
-    transition: all var(--transition-base);
-  }
-
-  .btn-secondary:hover {
-    background: #fafafa;
-    border-color: #d4d4d4;
-    transform: translateY(-2px);
+  .hero-bottom {
+    grid-template-columns: 1fr;
+    gap: 48px;
   }
 
   .hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: 48px;
-    flex-wrap: wrap;
+    grid-template-columns: repeat(4, auto);
+    gap: 24px 36px;
+  }
+}
+
+@media (max-width: 560px) {
+  .hero {
+    padding: 120px 0 72px;
   }
 
-  .stat-item {
+  .hero-meta {
+    margin-bottom: 28px;
+  }
+
+  .hero-category {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 13vw, 4.5rem);
+    margin-bottom: 44px;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr 1fr;
+    gap: 28px 20px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .btn-primary,
+  .btn-ghost {
+    justify-content: center;
     text-align: center;
   }
 
-  .stat-value {
-    display: block;
-    font-family: var(--font-display);
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--color-text-main);
-    letter-spacing: -0.02em;
+  .logos-row {
+    gap: 24px;
   }
-
-  .stat-label {
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
-  }
-
-  .hero-visual {
-    max-width: 1000px;
-    margin: 0 auto;
-    position: relative;
-  }
-
-  .dashboard-mockup {
-    background: white;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    border-radius: var(--radius-xl);
-    box-shadow: 
-      0 4px 6px rgba(0, 0, 0, 0.02),
-      0 20px 50px rgba(0, 0, 0, 0.08);
-    overflow: hidden;
-    transform: perspective(1000px) rotateX(2deg);
-    transform-origin: center bottom;
-  }
-
-  .mockup-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 20px;
-    background: #fafafa;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-  }
-
-  .mockup-dots {
-    display: flex;
-    gap: 8px;
-  }
-
-  .mockup-dots span {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #e5e5e5;
-  }
-
-  .mockup-dots span:first-child { background: #ff5f57; }
-  .mockup-dots span:nth-child(2) { background: #febc2e; }
-  .mockup-dots span:last-child { background: #28c840; }
-
-  .mockup-url {
-    font-size: 0.75rem;
-    color: #a3a3a3;
-    font-family: var(--font-sans);
-  }
-
-  .mockup-content {
-    display: flex;
-    min-height: 320px;
-    padding: 20px;
-    gap: 20px;
-  }
-
-  .mockup-sidebar {
-    width: 60px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .sidebar-item {
-    width: 100%;
-    height: 40px;
-    background: #f5f5f5;
-    border-radius: var(--radius-sm);
-    transition: background var(--transition-base);
-  }
-
-  .sidebar-item.active {
-    background: #0a0a0a;
-  }
-
-  .mockup-main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 16px;
-    background: #fafafa;
-    border-radius: var(--radius-md);
-  }
-
-  .header-title {
-    width: 120px;
-    height: 16px;
-    background: #e5e5e5;
-    border-radius: 4px;
-  }
-
-  .header-actions {
-    display: flex;
-    gap: 8px;
-  }
-
-  .action-btn {
-    width: 60px;
-    height: 28px;
-    background: #e5e5e5;
-    border-radius: 6px;
-  }
-
-  .action-btn.primary {
-    background: #0a0a0a;
-  }
-
-  .main-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    grid-template-rows: 1.5fr 1fr;
-    gap: 12px;
-    flex: 1;
-  }
-
-  .grid-card {
-    background: #fafafa;
-    border-radius: var(--radius-md);
-    padding: 16px;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .grid-card.large {
-    grid-row: span 2;
-  }
-
-  .card-chart {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 80%;
-  }
-
-  .chart-line {
-    width: 100%;
-    height: 100%;
-  }
-
-  .card-icon {
-    width: 32px;
-    height: 32px;
-    background: #e5e5e5;
-    border-radius: 8px;
-    margin-bottom: 8px;
-  }
-
-  .card-icon.accent {
-    background: rgba(0, 102, 255, 0.1);
-  }
-
-  .card-text {
-    width: 60%;
-    height: 10px;
-    background: #e5e5e5;
-    border-radius: 4px;
-  }
-
-  .logos-section {
-    padding: 60px 0;
-    border-top: 1px solid var(--color-border);
-    overflow: hidden;
-  }
-
-  .logos-title {
-    font-size: 0.8125rem;
-    font-weight: 500;
-    text-align: center;
-    color: var(--color-text-muted);
-    margin-bottom: 32px;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-  }
-
-  .logos-track {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 60px;
-    flex-wrap: wrap;
-    opacity: 0.4;
-  }
-
-  .logo-item {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: var(--color-text-body);
-    letter-spacing: 0.05em;
-    white-space: nowrap;
-  }
-
-  @media (max-width: 768px) {
-    .hero {
-      padding: 120px 0 60px;
-      min-height: auto;
-    }
-
-    .hero-content {
-      margin-bottom: 48px;
-    }
-
-    .hero-actions {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .btn-primary-large, .btn-secondary {
-      width: 100%;
-      max-width: 280px;
-      justify-content: center;
-    }
-
-    .hero-stats {
-      gap: 24px;
-    }
-
-    .stat-item {
-      flex: 1;
-      min-width: 80px;
-    }
-
-    .dashboard-mockup {
-      transform: none;
-    }
-
-    .mockup-content {
-      flex-direction: column;
-    }
-
-    .mockup-sidebar {
-      flex-direction: row;
-      width: 100%;
-    }
-
-    .sidebar-item {
-      width: 40px;
-      height: 40px;
-    }
-
-    .main-grid {
-      grid-template-columns: 1fr;
-      grid-template-rows: auto;
-    }
-
-    .grid-card.large {
-      grid-row: span 1;
-      min-height: 150px;
-    }
-
-    .logos-track {
-      gap: 30px;
-    }
-  }
+}
 </style>

@@ -1,303 +1,561 @@
 ---
 const plans = [
   {
-    name: 'Free',
-    price: '$0',
-    period: 'forever',
-    description: 'Perfect for individuals and learning',
-    features: [
-      '1M events/month',
-      '7-day retention',
-      'Core features',
-      'Community support',
+    number: '01',
+    name: 'Pay as you go',
+    eyebrow: 'For exploring',
+    description: 'Start instantly with usage-based pricing and no commitments.',
+    cta: 'Start free',
+    ctaHref: '#signup',
+    highlight: false,
+    rates: [
+      { label: 'Email',    value: '$1.50 / 1,000' },
+      { label: 'SMS',      value: 'From $0.0045'  },
+      { label: 'WhatsApp', value: '$0.005 / msg'  },
+      { label: 'Push',     value: '$0.0005 / msg' },
     ],
-    cta: 'Start Free',
-    popular: false,
+    features: [
+      'All channels except Apple Messages',
+      'Full Automation Suite',
+      'Unlimited usage',
+      'Suite of APIs',
+    ],
   },
   {
-    name: 'Token-based',
-    price: 'Usage',
-    period: 'pay-as-you-go',
-    description: 'For growing teams with variable needs',
-    features: [
-      'Scale to billions of events',
-      'Unlimited retention',
-      'Advanced dashboards',
-      'AI-powered insights',
-      'Priority support',
+    number: '02',
+    name: 'Monthly Contacts',
+    eyebrow: 'For scaling',
+    description: 'Predictable monthly pricing for growing businesses with reduced rates.',
+    cta: 'Request a bundle',
+    ctaHref: '#signup',
+    highlight: true,
+    rates: [
+      { label: 'Starts from', value: '50K contacts'        },
+      { label: 'Messages',    value: '500K included'       },
+      { label: 'SMS rates',   value: 'Reduced'             },
+      { label: 'Push',        value: 'Unlimited / contact' },
     ],
-    cta: 'Start Scaling',
-    popular: true,
+    features: [
+      'Everything in Pay as you go',
+      'Remove TAR branded footer',
+      'Overage allowed',
+      'Lower SMS rates',
+    ],
   },
   {
-    name: 'Fixed',
-    price: '$5',
-    period: 'per month',
-    description: 'Predictable cost for established teams',
-    features: [
-      '1B events included',
-      'Fixed monthly budget',
-      'Unlimited team members',
-      'SSO & SAML',
-      'Dedicated support',
-      'SLA guarantee',
+    number: '03',
+    name: 'Enterprise',
+    eyebrow: 'For scale',
+    description: 'Custom limits, dedicated support, and premium SLAs for large teams.',
+    cta: 'Contact sales',
+    ctaHref: '#signup',
+    highlight: false,
+    rates: [
+      { label: 'Contacts',       value: 'Custom'   },
+      { label: 'Messages',       value: 'Custom'   },
+      { label: 'Apple Messages', value: 'Included' },
+      { label: 'API rates',      value: 'Custom'   },
     ],
-    cta: 'Get Fixed Plan',
-    popular: false,
+    features: [
+      'Everything in Monthly Contacts',
+      'Single Sign-On (SSO)',
+      'Dedicated support team',
+      'SLA guarantees',
+    ],
+  },
+];
+
+const compareGroups = [
+  {
+    group: 'Core',
+    rows: [
+      { feature: 'Full Automation Suite',  payg: true,  bundle: true,  enterprise: true  },
+      { feature: 'Analytics',              payg: true,  bundle: true,  enterprise: true  },
+      { feature: 'Template studio',        payg: true,  bundle: true,  enterprise: true  },
+      { feature: 'Customer Data Platform', payg: true,  bundle: true,  enterprise: true  },
+      { feature: 'Suite of APIs',          payg: true,  bundle: true,  enterprise: true  },
+    ],
+  },
+  {
+    group: 'Channels',
+    rows: [
+      { feature: 'Email',                        payg: true,  bundle: true,  enterprise: true },
+      { feature: 'SMS',                          payg: true,  bundle: true,  enterprise: true },
+      { feature: 'WhatsApp',                     payg: true,  bundle: true,  enterprise: true },
+      { feature: 'Push Notifications',           payg: true,  bundle: true,  enterprise: true },
+      { feature: 'Apple Messages for Business',  payg: false, bundle: false, enterprise: true },
+    ],
+  },
+  {
+    group: 'Billing',
+    rows: [
+      { feature: 'Remove branded footer',        payg: false, bundle: true,  enterprise: true },
+      { feature: 'Overage allowed',              payg: false, bundle: true,  enterprise: true },
+      { feature: 'Unlimited Push per contact',   payg: false, bundle: true,  enterprise: true },
+      { feature: 'Custom volume pricing',        payg: false, bundle: false, enterprise: true },
+    ],
+  },
+  {
+    group: 'Enterprise',
+    rows: [
+      { feature: 'Single Sign-On (SSO)',         payg: false, bundle: false, enterprise: true },
+      { feature: 'Multiple workspaces',          payg: false, bundle: false, enterprise: true },
+      { feature: 'Dedicated support team',       payg: false, bundle: false, enterprise: true },
+      { feature: 'Technical Account Manager',    payg: false, bundle: false, enterprise: true },
+      { feature: 'SLA guarantees',               payg: false, bundle: false, enterprise: true },
+    ],
   },
 ];
 ---
 
-<section id="pricing" class="pricing section-padding">
+<section class="pricing" id="pricing">
   <div class="container">
-    <div class="section-header" data-animate>
-      <span class="section-label">Pricing</span>
-      <h2 class="section-title">Simple, transparent pricing</h2>
-      <p class="section-subtitle">
-        Start free and scale as you grow. No hidden fees, no surprises.
-      </p>
+
+    <div class="pricing-header" data-reveal>
+      <span class="pricing-eyebrow">Pricing</span>
+      <div class="pricing-head-body">
+        <h2 class="pricing-title">Simple,<br />transparent pricing.</h2>
+        <p class="pricing-sub">Start free. Scale as you grow. No hidden fees, no surprises.</p>
+      </div>
     </div>
-    
-    <div class="pricing-grid">
-      {plans.map((plan) => (
-        <div class={`pricing-card ${plan.popular ? 'popular' : ''}`} data-animate>
-          {plan.popular && <div class="popular-badge">Most Popular</div>}
-          
-          <div class="pricing-header">
-            <h3 class="plan-name">{plan.name}</h3>
-            <div class="plan-price">
-              <span class="price">{plan.price}</span>
-              {plan.period !== 'pay-as-you-go' && plan.period !== 'forever' && (
-                <span class="period">/{plan.period}</span>
-              )}
-              {plan.period === 'pay-as-you-go' && (
-                <span class="period-desc">pay-as-you-go</span>
-              )}
-              {plan.period === 'forever' && (
-                <span class="period-desc">forever</span>
-              )}
-            </div>
-            <p class="plan-description">{plan.description}</p>
+
+    {plans.map((p, i) => (
+      <div class={`plan ${p.highlight ? 'plan--hi' : ''}`} style={`--i: ${i}`} data-reveal>
+        <div class="plan-meta">
+          <span class="plan-num">{p.number}</span>
+          <span class="plan-eyebrow">{p.eyebrow}</span>
+        </div>
+
+        <div class="plan-main">
+          <h3 class="plan-name">{p.name}</h3>
+          <p class="plan-desc">{p.description}</p>
+          <a href={p.ctaHref} class={`plan-cta ${p.highlight ? 'plan-cta--hi' : ''}`}>
+            {p.cta}
+            <svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+        </div>
+
+        <div class="plan-detail">
+          <div class="plan-rates">
+            {p.rates.map(r => (
+              <div class="rate-row">
+                <span class="rate-label">{r.label}</span>
+                <span class="rate-value">{r.value}</span>
+              </div>
+            ))}
           </div>
-          
-          <ul class="plan-features">
-            {plan.features.map((feature) => (
-              <li>
-                <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-                  <path d="M16.667 5L7.5 14.167L3.333 10" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <ul class="plan-feats">
+            {p.features.map(f => (
+              <li class="plan-feat">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2.5 7l3 3 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-                {feature}
+                {f}
               </li>
             ))}
           </ul>
-          
-          <a href="#signup" class={`btn ${plan.popular ? 'btn-primary' : 'btn-secondary'}`}>
-            {plan.cta}
-          </a>
         </div>
-      ))}
+      </div>
+    ))}
+
+    <!-- Compare table -->
+    <div class="compare" data-reveal>
+      <div class="compare-header">
+        <span class="pricing-eyebrow">Compare</span>
+        <h3 class="compare-title">What's included</h3>
+      </div>
+
+      <div class="compare-scroll">
+        <table class="ct">
+          <thead>
+            <tr>
+              <th class="ct-f"></th>
+              <th class="ct-c">Pay as you go</th>
+              <th class="ct-c ct-c--hi">Monthly Contacts</th>
+              <th class="ct-c">Enterprise</th>
+            </tr>
+          </thead>
+          <tbody>
+            {compareGroups.map(grp => (
+              <>
+                <tr class="ct-group">
+                  <td colspan="4">{grp.group}</td>
+                </tr>
+                {grp.rows.map(row => (
+                  <tr class="ct-row">
+                    <td class="ct-fname">{row.feature}</td>
+                    <td class="ct-cell">
+                      {row.payg
+                        ? <svg class="yes" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3 3 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        : <span class="no">—</span>}
+                    </td>
+                    <td class="ct-cell ct-cell--hi">
+                      {row.bundle
+                        ? <svg class="yes" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3 3 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        : <span class="no">—</span>}
+                    </td>
+                    <td class="ct-cell">
+                      {row.enterprise
+                        ? <svg class="yes" width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7l3 3 6-6" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        : <span class="no">—</span>}
+                    </td>
+                  </tr>
+                ))}
+              </>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
+
   </div>
 </section>
 
 <style>
-  .pricing {
-    background: var(--color-bg);
-    position: relative;
-  }
+/* ── Section ───────────────────────────────────── */
+.pricing {
+  background: var(--bg-soft);
+  padding: 120px 0;
+}
 
-  .section-header {
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto 60px;
-  }
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
 
-  .section-label {
-    display: inline-block;
-    font-size: 0.8125rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--color-primary);
-    margin-bottom: 16px;
-  }
+/* ── Header ────────────────────────────────────── */
+.pricing-header {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 48px;
+  align-items: end;
+  padding-bottom: 80px;
+  border-bottom: 1px solid var(--border);
+}
 
-  .section-title {
-    font-size: clamp(2rem, 5vw, 2.75rem);
-    color: var(--color-text-main);
-    margin-bottom: 16px;
-  }
+.pricing-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--red);
+}
 
-  .section-subtitle {
-    font-size: 1.125rem;
-    color: var(--color-text-muted);
-    line-height: 1.6;
-  }
+.pricing-head-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    align-items: start;
-  }
+.pricing-title {
+  font-size: clamp(2.5rem, 5.5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  color: var(--ink);
+}
 
-  .pricing-card {
-    background: white;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
-    padding: 40px;
-    position: relative;
-    transition: all var(--transition-base);
-  }
+.pricing-sub {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--body);
+  max-width: 380px;
+}
 
-  .pricing-card.popular {
-    border-color: var(--color-primary);
-    box-shadow: 0 20px 60px rgba(0, 102, 255, 0.1);
-    transform: scale(1.02);
-  }
+/* ── Plan rows ─────────────────────────────────── */
+.plan {
+  display: grid;
+  grid-template-columns: 220px 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+  padding: 56px 0;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-soft);
+}
 
-  .pricing-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-lg);
-  }
+.plan--hi {
+  background: var(--dark-bg);
+  margin: 0 -40px;
+  padding: 56px 40px;
+  border-radius: var(--r-lg);
+  border-color: transparent;
+}
 
-  .pricing-card.popular:hover {
-    transform: scale(1.02) translateY(-4px);
-  }
+/* Meta */
+.plan-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 4px;
+}
 
-  .popular-badge {
-    position: absolute;
-    top: -14px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--color-primary);
-    color: white;
-    padding: 8px 20px;
-    border-radius: 100px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
+.plan-num {
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
 
+.plan--hi .plan-num {
+  color: rgba(255,255,255,0.25);
+}
+
+.plan-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--red);
+}
+
+/* Main */
+.plan-name {
+  font-size: clamp(1.375rem, 2.2vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.plan--hi .plan-name {
+  color: white;
+}
+
+.plan-desc {
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  color: var(--body);
+  margin-bottom: 28px;
+}
+
+.plan--hi .plan-desc {
+  color: rgba(255,255,255,0.45);
+}
+
+.plan-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 22px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-pill);
+  text-decoration: none;
+  transition: border-color var(--dur-fast) ease,
+              background var(--dur-fast) ease,
+              color var(--dur-fast) ease,
+              box-shadow var(--dur-fast) ease;
+  width: fit-content;
+}
+
+.plan-cta:hover {
+  border-color: var(--ink-3);
+  background: var(--bg-soft);
+  color: var(--ink);
+}
+
+.plan-cta--hi {
+  color: #fff;
+  background: var(--red);
+  border-color: var(--red);
+}
+
+.plan-cta--hi:hover {
+  background: var(--red-dark);
+  border-color: var(--red-dark);
+  box-shadow: 0 4px 16px rgba(200,16,46,0.30);
+}
+
+/* Detail */
+.plan-rates {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+
+.plan--hi .plan-rates {
+  border-top-color: rgba(255,255,255,0.10);
+}
+
+.rate-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.plan--hi .rate-row {
+  border-bottom-color: rgba(255,255,255,0.08);
+}
+
+.rate-label {
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+.plan--hi .rate-label {
+  color: rgba(255,255,255,0.35);
+}
+
+.rate-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.plan--hi .rate-value {
+  color: white;
+}
+
+.plan-feats {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.plan-feat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: var(--body);
+}
+
+.plan--hi .plan-feat {
+  color: rgba(255,255,255,0.55);
+}
+
+.plan-feat svg {
+  flex-shrink: 0;
+  color: var(--red);
+}
+
+/* ── Compare table ─────────────────────────────── */
+.compare {
+  margin-top: 80px;
+}
+
+.compare-header {
+  margin-bottom: 40px;
+}
+
+.compare-title {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-top: 12px;
+}
+
+.compare-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ct {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.ct-f {
+  width: 40%;
+  text-align: left;
+  padding: 16px 0;
+  font-weight: 600;
+  color: var(--ink-3);
+}
+
+.ct-c {
+  text-align: center;
+  padding: 16px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink-3);
+  border-bottom: 2px solid var(--border);
+  white-space: nowrap;
+}
+
+.ct-c--hi {
+  color: var(--red);
+  border-bottom-color: var(--red);
+}
+
+.ct-group td {
+  padding: 20px 0 10px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+.ct-row {
+  border-bottom: 1px solid var(--border);
+}
+
+.ct-fname {
+  padding: 14px 0;
+  font-size: 0.875rem;
+  color: var(--ink-3);
+}
+
+.ct-cell {
+  text-align: center;
+  padding: 14px;
+}
+
+.ct-cell--hi {
+  background: rgba(200,16,46,0.04);
+}
+
+.yes { color: var(--red); }
+
+.no {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+/* ── Responsive ────────────────────────────────── */
+@media (max-width: 900px) {
   .pricing-header {
-    text-align: center;
-    margin-bottom: 32px;
-    padding-bottom: 28px;
-    border-bottom: 1px solid var(--color-border);
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  .plan-name {
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin-bottom: 16px;
-    color: var(--color-text-main);
+  .plan {
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: auto auto;
+    gap: 24px;
   }
 
-  .plan-price {
-    margin-bottom: 12px;
-    display: flex;
-    align-items: baseline;
-    justify-content: center;
-    gap: 4px;
+  .plan-detail {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .pricing { padding: 80px 0; }
+  .container { padding: 0 24px; }
+
+  .plan {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
-  .price {
-    font-family: var(--font-display);
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--color-text-main);
-    letter-spacing: -0.02em;
+  .plan--hi {
+    margin: 0 -24px;
+    padding: 48px 24px;
   }
-
-  .period {
-    font-size: 1rem;
-    color: var(--color-text-muted);
-  }
-
-  .period-desc {
-    font-size: 0.875rem;
-    color: var(--color-text-muted);
-  }
-
-  .plan-description {
-    color: var(--color-text-body);
-    font-size: 0.9375rem;
-  }
-
-  .plan-features {
-    list-style: none;
-    margin-bottom: 32px;
-  }
-
-  .plan-features li {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 12px 0;
-    border-bottom: 1px solid #f5f5f5;
-    font-size: 0.9375rem;
-    color: var(--color-text-body);
-  }
-
-  .plan-features li:last-child {
-    border-bottom: none;
-  }
-
-  .plan-features svg {
-    color: var(--color-accent);
-    flex-shrink: 0;
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 14px 24px;
-    font-size: 0.9375rem;
-    font-weight: 600;
-    border-radius: 100px;
-    border: none;
-    cursor: pointer;
-    transition: all var(--transition-base);
-    width: 100%;
-  }
-
-  .btn-primary {
-    background: var(--color-primary);
-    color: white;
-  }
-
-  .btn-primary:hover {
-    background: var(--color-primary-dark);
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(0, 102, 255, 0.25);
-  }
-
-  .btn-secondary {
-    background: white;
-    color: var(--color-text-main);
-    border: 1px solid var(--color-border);
-  }
-
-  .btn-secondary:hover {
-    background: var(--color-bg);
-    border-color: #d4d4d4;
-  }
-
-  @media (max-width: 968px) {
-    .pricing-grid {
-      grid-template-columns: 1fr;
-      max-width: 400px;
-      margin: 0 auto;
-    }
-
-    .pricing-card.popular {
-      transform: none;
-    }
-
-    .pricing-card.popular:hover {
-      transform: translateY(-4px);
-    }
-  }
+}
 </style>
